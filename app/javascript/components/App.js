@@ -1,5 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {
+  HashRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 import axios from 'axios'
 import Header from './Header'
 
@@ -41,9 +46,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header updateCurrentUser={this.updateCurrentUser}/>
-      </div>
+      <Router>
+          <Route 
+          exact path="/" 
+          render={() => <Header currentUser={this.state.currentUser} updateCurrentUser={this.updateCurrentUser} />} 
+          />
+      </Router>
     )
   }
 

@@ -7,16 +7,6 @@ class Header extends React.Component {
 
   constructor(props) {
     super(props);
-    if (this.props.currentUser == null) {
-      this.state = {
-        page: "welcome"
-      }
-    } else {
-      this.state = {
-        page: "todos"
-      }
-    }
-    this.changePage = this.changePage.bind(this);
   }
 
   changePage(newPage) {
@@ -26,11 +16,10 @@ class Header extends React.Component {
   }
 
   render() {
-    switch (this.state.page) {
-      case "welcome":
-        return <Welcome changePage={this.changePage} updateCurrentUser={this.props.updateCurrentUser} />
-      case "todos":
-        return <TodoManager changePage={this.changePage} updateCurrentUser={this.props.updateCurrentUser} />
+    if (this.props.currentUser === null) {
+      return <Welcome />
+    } else {
+      return <TodoManager />
     }
   }
 
