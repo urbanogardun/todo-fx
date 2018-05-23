@@ -20,6 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 # React-Rails is a flexible tool to use React with Rails
 gem 'react-rails'
+# Devise is a flexible authentication solution for Rails based on Warden.
+gem 'devise'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
