@@ -17,6 +17,8 @@ class Header extends React.Component {
 
   render() {
     if (this.props.currentUser === null) {
+      return <div />
+    } else if (this.props.currentUser === false) {
       return <Welcome />
     } else {
       return <TodoManager />
