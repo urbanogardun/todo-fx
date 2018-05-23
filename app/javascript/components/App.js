@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import axios from 'axios'
 import Header from './Header'
+import TodoManager from "./TodoManager";
 
 class App extends React.Component {
 
@@ -46,12 +47,21 @@ class App extends React.Component {
   }
 
   render() {
+    // We pass use spread operator on props so that
+    // all methods of react-router get passed to children.
+    // This way we can programmatically change routes.
     return (
       <Router>
-          <Route 
-          exact path="/" 
-          render={() => <Header currentUser={this.state.currentUser} updateCurrentUser={this.updateCurrentUser} />} 
-          />
+          <React.Fragment>
+            <Route 
+              exact path="/" 
+              render={(props) => <Header currentUser={this.state.currentUser} updateCurrentUser={this.updateCurrentUser} {...props} />} 
+            />
+            <Route 
+              path="/todo" 
+              render={(props) => <TodoManager currentUser={this.state.currentUser} {...props} />} 
+            />
+          </React.Fragment>
       </Router>
     )
   }

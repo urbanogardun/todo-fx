@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import axios from 'axios'
+import { browserHistory } from 'react-router';
 
 class Signup extends React.Component {
 
@@ -23,9 +24,7 @@ class Signup extends React.Component {
             }
         })
         .then(function (response) {
-            console.log(response);
-            // that.props.changePage("todos");
-            // that.props.updateCurrentUser(email);
+            that.props.history.push('/todo');
         })
         .catch(function (error) {
             console.log(error)
@@ -47,13 +46,6 @@ class Signup extends React.Component {
         );
     };
 
-    // render () {
-    //   return (
-    //     <React.Fragment>
-    //       <h2>Signup</h2>
-    //     </React.Fragment>
-    //   );
-    // }
   }
   
   export default Signup

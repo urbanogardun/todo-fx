@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Redirect } from 'react-router'
 import Welcome from './Welcome'
 import TodoManager from './TodoManager'
 
@@ -19,9 +20,9 @@ class Header extends React.Component {
     if (this.props.currentUser === null) {
       return <div />
     } else if (this.props.currentUser === false) {
-      return <Welcome />
+      return <Welcome {...this.props} />
     } else {
-      return <TodoManager />
+      return <Redirect to="/todo" />
     }
   }
 

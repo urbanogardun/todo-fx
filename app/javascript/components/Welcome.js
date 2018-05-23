@@ -9,10 +9,11 @@ class Welcome extends React.Component {
     super(props);
   }
     render () {
+      console.log(this.props);
       return (
         <React.Fragment>
           <h2>Welcome page here</h2>
-          <Signup changePage={this.props.changePage} updateCurrentUser={this.props.updateCurrentUser} />
+          <Signup {...this.props} />
         </React.Fragment>
       );
     }
