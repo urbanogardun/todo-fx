@@ -4,6 +4,7 @@ import axios from 'axios'
 
 class TodoList extends React.Component {
     render () {
+        console.log(this.props);
         const listItems = this.props.todos.map((number) =>
             <li key={number.id}>{number.item}</li>
         );

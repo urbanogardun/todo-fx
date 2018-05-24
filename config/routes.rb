@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # resources :todos
   get 'todos/:user_id', to: 'todos#show'
+  post 'todos', to: 'todos#create'
+  # post 'todos/:id', to: 'todos#new'
   # devise_for :users
 
   devise_for :users, controllers: {
