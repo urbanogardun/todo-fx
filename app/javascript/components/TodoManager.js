@@ -15,6 +15,7 @@ class TodoManager extends React.Component {
     }
     this.updateCurrentUserId = this.updateCurrentUserId.bind(this);
     this.addTodo = this.addTodo.bind(this);
+    this.editTodo = this.editTodo.bind(this);
   }
 
   updateCurrentUserId(id) {
@@ -64,12 +65,25 @@ class TodoManager extends React.Component {
     })
   }
 
+  editTodo(todoId, todo) {
+    console.log(`edit todo with id: ${todoId} for user id: ${todo.user_id}`)
+    console.log(todo);
+    axios.patch('/todos', todo)
+    .then((response) => {
+      console.log(response);
+      console.log('Successfully edited a todo item!');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
         <h2>TodoManager</h2>
         <AddTodo currentUserId={this.state.currentUserId} addTodo={this.addTodo} />
-        <TodoList currentUserId={this.state.currentUserId} todos={this.state.todos} />
+        <TodoList currentUserId={this.state.currentUserId} todos={this.state.todos} editTodo={this.editTodo} />
         <Logout {...this.props} />
       </React.Fragment>
     );
