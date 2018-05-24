@@ -14,6 +14,7 @@ class Welcome extends React.Component {
         <React.Fragment>
           <h2>Welcome page here</h2>
           <Signup {...this.props} />
+          <Login {...this.props} />
         </React.Fragment>
       );
     }
