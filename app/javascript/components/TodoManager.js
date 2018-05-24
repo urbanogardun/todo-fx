@@ -106,12 +106,23 @@ class TodoManager extends React.Component {
     })
   }
 
+  markTodoCompleted(todoId) {
+    
+    axios.patch(`/todos/${todoId}/complete`)
+    .then((response) => {
+      console.log('Mark todo: ' + todoId + ' completed.');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
         <h2>TodoManager</h2>
         <AddTodo currentUserId={this.state.currentUserId} addTodo={this.addTodo} />
-        <TodoList currentUserId={this.state.currentUserId} todos={this.state.todos} editTodo={this.editTodo} deleteTodo={this.deleteTodo} />
+        <TodoList currentUserId={this.state.currentUserId} todos={this.state.todos} editTodo={this.editTodo} deleteTodo={this.deleteTodo} markTodoCompleted={this.markTodoCompleted} />
         <Logout {...this.props} />
       </React.Fragment>
     );

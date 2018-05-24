@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'todos', to: 'todos#create'
   patch 'todos', to: 'todos#update'
   delete 'todos/:id', to: 'todos#destroy'
+  patch 'todos/:id/complete', to: 'todos#complete_todo'
   # post 'todos/:id', to: 'todos#new'
   # devise_for :users
 

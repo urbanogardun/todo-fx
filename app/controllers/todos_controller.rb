@@ -36,4 +36,12 @@ class TodosController < ApplicationController
         todo.destroy
     end
 
+    # PATCH /todos/:id/complete
+    # Toggle between completing todo item
+    def complete_todo
+        todo = Todo.find(params[:id])
+        todo_completed = todo.completed ? false : true
+        todo.update(completed: todo_completed)
+    end
+
 end
