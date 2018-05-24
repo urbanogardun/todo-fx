@@ -16,6 +16,7 @@ class TodoManager extends React.Component {
     this.updateCurrentUserId = this.updateCurrentUserId.bind(this);
     this.addTodo = this.addTodo.bind(this);
     this.editTodo = this.editTodo.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   updateCurrentUserId(id) {
@@ -86,12 +87,31 @@ class TodoManager extends React.Component {
     })
   }
 
+  deleteTodo(todoId) {
+    console.log('Delete todo of id: ' + todoId)
+
+    axios.delete(`/todos/${todoId}`)
+    .then((response) => {
+
+      // Remove deleted todo item from DOM
+      let newTodos = this.state.todos.filter((t) => {return t.id !== todoId});
+
+      this.setState({
+        todos: [...newTodos]
+      })
+
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
         <h2>TodoManager</h2>
         <AddTodo currentUserId={this.state.currentUserId} addTodo={this.addTodo} />
-        <TodoList currentUserId={this.state.currentUserId} todos={this.state.todos} editTodo={this.editTodo} />
+        <TodoList currentUserId={this.state.currentUserId} todos={this.state.todos} editTodo={this.editTodo} deleteTodo={this.deleteTodo} />
         <Logout {...this.props} />
       </React.Fragment>
     );

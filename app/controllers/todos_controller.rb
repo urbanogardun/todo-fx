@@ -30,4 +30,10 @@ class TodosController < ApplicationController
         todo.update({:item => todo_subject, :due => due_date, :priority => priority})
     end
 
+    # DELETE /todos/:id
+    def destroy
+        todo = Todo.find(params[:id])
+        todo.destroy
+    end
+
 end

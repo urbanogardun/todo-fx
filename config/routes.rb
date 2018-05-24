@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'todos/:user_id', to: 'todos#show'
   post 'todos', to: 'todos#create'
   patch 'todos', to: 'todos#update'
+  delete 'todos/:id', to: 'todos#destroy'
   # post 'todos/:id', to: 'todos#new'
   # devise_for :users
 

@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import EditTodo from './EditTodo'
+import DeleteTodo from './DeleteTodo'
 import axios from 'axios'
 
 class TodoList extends React.Component {
@@ -8,6 +9,7 @@ class TodoList extends React.Component {
         const listItems = this.props.todos.map((todo) =>
             <React.Fragment key={todo.id}>
               <EditTodo todo={todo} editTodo={this.props.editTodo} />
+              <DeleteTodo todoId={todo.id} deleteTodo={this.props.deleteTodo} />
             </React.Fragment>
         );
       return (
