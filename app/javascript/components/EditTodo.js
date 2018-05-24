@@ -27,7 +27,7 @@ class EditTodo extends React.Component {
         let editFormElement = $(`div[data-item-id="${todoId}"]`);
 
         let todoSubject = editFormElement.find('.edit-todo__input-subject').val().trim();
-        let dueDate = editFormElement.find('.edit-todo__input-due-date').val().trim();
+        let dueDate = new Date(editFormElement.find('.edit-todo__input-due-date').val().trim());
         let priority = editFormElement.find('.edit-todo__input-priority').val().trim();
 
         let todo = {
@@ -63,7 +63,7 @@ class EditTodo extends React.Component {
                 <div className="field">
                     <label className="label">Due Date</label>
                     <div className="control">
-                        <input className="input is-primary" className="edit-todo__input-due-date" type="text" placeholder="mm/dd/yyyy hh:mm:ss"  defaultValue={new Date(dueDate).toLocaleString()} />
+                        <input className="input is-primary" className="edit-todo__input-due-date" type="text" placeholder="mm/dd/yyyy hh:mm:ss" defaultValue={new Date(dueDate).toLocaleString()} />
                     </div>
                 </div>
                 <div className="field">

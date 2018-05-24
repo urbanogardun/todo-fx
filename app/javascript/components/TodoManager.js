@@ -68,6 +68,8 @@ class TodoManager extends React.Component {
   editTodo(todoId, todo) {
     console.log(`edit todo with id: ${todoId} for user id: ${todo.user_id}`)
     console.log(todo);
+    let currentUserId = this.state.currentUserId
+    console.log(currentUserId);
     axios.patch('/todos', todo)
     .then((response) => {
       console.log(response);
