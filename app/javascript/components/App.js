@@ -59,7 +59,7 @@ class App extends React.Component {
             />
             <Route 
               path="/todo" 
-              render={(props) => <TodoManager currentUser={this.state.currentUser} {...props} />} 
+              render={(props) => <TodoManager currentUser={this.state.currentUser} updateCurrentUser={this.updateCurrentUser} {...props} />} 
             />
           </React.Fragment>
       </Router>

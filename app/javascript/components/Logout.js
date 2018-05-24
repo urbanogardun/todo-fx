@@ -20,9 +20,8 @@ class Logout extends React.Component {
         instance.delete('/users/sign_out', {
         })
         .then(function (response) {
-            console.log(response);
+            that.props.updateCurrentUser(false);
             that.props.history.push('/');
-            // that.props.changePage("login")
         })
         .catch(function (error) {
             console.log(error)
@@ -30,19 +29,12 @@ class Logout extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <button onClick={this.handleLogout}>Sign Out</button>
         );
     };
 
-
-    // render () {
-    //   return (
-    //     <React.Fragment>
-    //       <h2>Logout</h2>
-    //     </React.Fragment>
-    //   );
-    // }
-  }
+}
   
-  export default Logout
+export default Logout
