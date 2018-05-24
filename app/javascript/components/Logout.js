@@ -29,7 +29,6 @@ class Logout extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <button onClick={this.handleLogout}>Sign Out</button>
         );

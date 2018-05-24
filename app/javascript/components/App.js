@@ -24,7 +24,6 @@ class App extends React.Component {
     axios.get('/users/check_user',{
     })
     .then(function(response){
-      console.log(response);
       if(response.data.email){
         that.setState({
           currentUser: response.data.email

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :todos
+  # resources :todos
+  get 'todos/:user_id', to: 'todos#show'
   # devise_for :users
 
   devise_for :users, controllers: {
