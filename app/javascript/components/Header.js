@@ -19,7 +19,7 @@ class Header extends React.Component {
   render() {
     console.log(this.props);
     if (this.props.currentUser === null) {
-      return <div />
+      return null
     } else if (this.props.currentUser === false) {
       return <Welcome {...this.props} />
     } else {

@@ -23,7 +23,9 @@ class Login extends React.Component {
       }
     })
     .then(function (response) {
-      that.props.updateCurrentUser(email);
+      if (response.data.email) {
+        that.props.updateCurrentUser(response.data.email);
+      }
     })
     .catch(function (error) {
       console.log(error)
