@@ -1,9 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
+import axios from 'axios'
+import UserHeader from './UserHeader'
 import Logout from './Logout'
 import TodoList from './TodoList'
 import AddTodo from './AddTodo'
-import axios from 'axios'
 
 class TodoManager extends React.Component {
 
@@ -122,7 +123,7 @@ class TodoManager extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h2>TodoManager</h2>
+        <UserHeader />
         <AddTodo currentUserId={this.state.currentUserId} addTodo={this.addTodo} />
         <TodoList currentUserId={this.state.currentUserId} todos={this.state.todos} editTodo={this.editTodo} deleteTodo={this.deleteTodo} markTodoCompleted={this.markTodoCompleted} />
         <Logout {...this.props} />
