@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import axios from 'axios'
 import { browserHistory } from 'react-router';
+import { Link } from 'react-router-dom'
+import GuestHeader from './GuestHeader'
 
 class Signup extends React.Component {
 
@@ -33,16 +35,58 @@ class Signup extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Signup</h2>
-                <form>
-                    <input id="email" placeholder="email" />
-                    <input id="password" placeholder="password" />
-                    <input id="password_confirmation" placeholder="retype password" />
-                    <button onClick={this.handleSignup}>Submit</button>
-                </form>
-                <button onClick={() => this.props.changePage("login")}>Back to Login</button>
-            </div>
+            <React.Fragment>
+                <GuestHeader />
+
+                <div className="container">
+
+                    <div className="column is-three-fifths is-offset-one-fifth" style={{ marginBottom: 220 + 'px' }}>
+
+                        <div className="box">
+
+                            <div className="field">
+                                <p className="control has-icons-left has-icons-right">
+                                    <input className="input" id="email" type="email" placeholder="Email" />
+                                    <span className="icon is-small is-left">
+                                        <i className="fas fa-envelope" />
+                                    </span>
+                                    <span className="icon is-small is-right">
+                                        <i className="fas fa-check" />
+                                    </span>
+                                </p>
+                            </div>
+                            <div className="field">
+                                <p className="control has-icons-left">
+                                    <input className="input" id="password" type="password" placeholder="Password" />
+                                    <span className="icon is-small is-left">
+                                        <i className="fas fa-lock" />
+                                    </span>
+                                </p>
+                            </div>
+                            <div className="field">
+                                <p className="control has-icons-left">
+                                    <input className="input" id="password_confirmation" type="password" placeholder="Retype password" />
+                                    <span className="icon is-small is-left">
+                                        <i className="fas fa-lock" />
+                                    </span>
+                                </p>
+                            </div>
+                            <div className="field">
+                                <p className="control">
+                                    <button className="button is-success" onClick={this.handleSignup}>
+                                        Submit
+                                    </button>
+                                    <Link className="button is-success" to="/" style={{ marginLeft: 10 + 'px' }}>Back</Link>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </React.Fragment>
         );
     };
 

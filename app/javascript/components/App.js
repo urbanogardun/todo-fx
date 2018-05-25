@@ -8,6 +8,7 @@ import {
 import axios from 'axios'
 import Header from './Header'
 import TodoManager from "./TodoManager";
+import Signup from './Signup'
 
 class App extends React.Component {
 
@@ -59,6 +60,10 @@ class App extends React.Component {
             <Route 
               path="/todo" 
               render={(props) => <TodoManager currentUser={this.state.currentUser} updateCurrentUser={this.updateCurrentUser} {...props} />} 
+            />
+            <Route 
+              path="/signup" 
+              render={(props) => <Signup updateCurrentUser={this.updateCurrentUser} {...props} />} 
             />
           </React.Fragment>
       </Router>
