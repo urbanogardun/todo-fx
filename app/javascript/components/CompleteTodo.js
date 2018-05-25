@@ -12,7 +12,6 @@ class CompleteTodo extends React.Component {
 
     markTodoCompleted(e) {
         e.preventDefault();
-        console.log($(e).parent());
         $(`#table-row-${this.props.todoId}`).toggleClass('is-selected')
         this.props.markTodoCompleted(this.props.todoId);
     }
