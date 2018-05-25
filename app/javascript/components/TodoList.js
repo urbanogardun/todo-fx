@@ -17,12 +17,12 @@ class TodoList extends React.Component {
             <td style={itemStyle}>{todo.item}</td>
             <td style={itemStyle}>{new Date(todo.due).toLocaleString()}</td>
             <td><CompleteTodo todoId={todo.id} markTodoCompleted={this.props.markTodoCompleted} /></td>
+            <td><DeleteTodo todoId={todo.id} deleteTodo={this.props.deleteTodo} /></td>
             <td><EditTodo todo={todo} editTodo={this.props.editTodo} /></td>
           </tr>
         );
-      return (
-        <React.Fragment>
-
+      if (this.props.todos.length > 0) {
+        return (
           <div className="container">
             <table className="table is-fullwidth is-hoverable">
               <thead>
@@ -32,7 +32,7 @@ class TodoList extends React.Component {
                   </th>
                   <th>Item</th>
                   <th>
-                    <abbr title="By what date should an item be completed">Due</abbr>
+                    Due
                   </th>
                   <th/>
                   <th/>
@@ -43,9 +43,10 @@ class TodoList extends React.Component {
               </tbody>
             </table>
           </div>
-
-        </React.Fragment>
-      );
+        );
+      } else {
+        return null
+      }
     }
   }
   

@@ -91,8 +91,6 @@ class TodoManager extends React.Component {
   }
 
   deleteTodo(todoId) {
-    console.log('Delete todo of id: ' + todoId)
-
     axios.delete(`/todos/${todoId}`)
     .then((response) => {
 
@@ -112,9 +110,6 @@ class TodoManager extends React.Component {
   markTodoCompleted(todoId) {
     
     axios.patch(`/todos/${todoId}/complete`)
-    .then((response) => {
-      console.log('Mark todo: ' + todoId + ' completed.');
-    })
     .catch((error) => {
       console.log(error);
     })

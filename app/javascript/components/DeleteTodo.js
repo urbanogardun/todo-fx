@@ -16,10 +16,16 @@ class DeleteTodo extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
-                <h2>deleteTodo</h2>
-                <button onClick={this.deleteTodo}>Delete Todo</button>
-            </React.Fragment>
+            <i
+                onClick={this.deleteTodo}
+                className="fas fa-times fa-sm todolist__complete-todo-i"
+                style={
+                    {
+                        cursor: 'pointer',
+                        position: 'relative',
+                        top: '5px'
+                    }}
+            />
         );
     }
 }
