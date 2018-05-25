@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class Login extends React.Component {
     
@@ -34,15 +35,47 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Login</h2>
-        <form>
-          <input id="email-login" placeholder="email" />
-          <input id="password-login" placeholder="password" />
-          <button onClick={this.handleLogin}>Submit</button>
-        </form>
-        <button onClick={() => this.props.changePage("login")}>Back to Login</button>
-      </div>
+      <React.Fragment>
+        <div className="container">
+
+          <div className="column is-three-fifths is-offset-one-fifth" style={{marginBottom: 220 + 'px'}}>
+
+            <div className="box">
+
+              <div className="field">
+                <p className="control has-icons-left has-icons-right">
+                  <input className="input" id="email-login" type="email" placeholder="Email" />
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-envelope" />
+                  </span>
+                  <span className="icon is-small is-right">
+                    <i className="fas fa-check" />
+                  </span>
+                </p>
+              </div>
+              <div className="field">
+                <p className="control has-icons-left">
+                  <input className="input" id="password-login" type="password" placeholder="Password" />
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-lock" />
+                  </span>
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  <button className="button is-success" onClick={this.handleLogin}>
+                    Login
+                  </button>
+                  <Link className="button is-success" to="/signup" style={{marginLeft: 10 + 'px'}}>Signup</Link>
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </React.Fragment>
     );
   };  
 
