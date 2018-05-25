@@ -53,13 +53,15 @@ class TodoManager extends React.Component {
   }
 
   addTodo(todo) {
-    this.setState({
-      todos: [todo, ...this.state.todos]
-    })
     axios.post('/todos', todo)
     .then((response) => {
-      console.log(response);
-      console.log('Successfully created a todo item!');
+
+      if (response.data.id) {
+        this.setState({
+          todos: [response.data, ...this.state.todos]
+        })
+      }
+
     })
     .catch((error) => {
       console.log(error);

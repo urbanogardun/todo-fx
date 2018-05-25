@@ -17,7 +17,14 @@ class TodosController < ApplicationController
         priority = params[:priority]
         user_id = params[:user_id]
 
-        Todo.create({:item => todo_subject, :due => due_date, :priority => priority, :user_id => user_id}).save!
+        todo = Todo.new({:item => todo_subject, :due => due_date, :priority => priority, :user_id => user_id})
+
+        if todo.save
+            render json: todo
+        else
+            render json: false
+        end
+
     end
 
     # PATCH /todos

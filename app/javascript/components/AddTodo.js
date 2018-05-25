@@ -17,7 +17,6 @@ class AddTodo extends React.Component {
         let priority = document.getElementById('add-todo__select-priority').value.trim();
 
         this.props.addTodo({
-            id: 10,
             user_id: this.props.currentUserId,
             item: todoSubject,
             due: dueDate,
