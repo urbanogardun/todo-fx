@@ -19,7 +19,16 @@ class CompleteTodo extends React.Component {
 
     render() {
         return (
-            <button className="button" onClick={this.markTodoCompleted}>Complete</button>
+            <i 
+                onClick={this.markTodoCompleted} 
+                className="fas fa-check fa-sm todolist__complete-todo-i"
+                style={
+                    {
+                        cursor: 'pointer',
+                        position: 'relative',
+                        top: '5px'
+                    }}
+            />
         );
     }
 }

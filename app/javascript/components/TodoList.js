@@ -7,11 +7,15 @@ import axios from 'axios'
 
 class TodoList extends React.Component {
     render () {
+        let itemStyle = {
+          position: 'relative',
+          top: '5px'
+        }
         const listItems = this.props.todos.map((todo) =>
           <tr key={todo.id} id={`table-row-${todo.id}`}>
-            <th>{todo.priority}</th>
-            <td>{todo.item}</td>
-            <td>{new Date(todo.due).toLocaleString()}</td>
+            <th style={itemStyle}>{todo.priority}</th>
+            <td style={itemStyle}>{todo.item}</td>
+            <td style={itemStyle}>{new Date(todo.due).toLocaleString()}</td>
             <td><CompleteTodo todoId={todo.id} markTodoCompleted={this.props.markTodoCompleted} /></td>
             <td><EditTodo todo={todo} editTodo={this.props.editTodo} /></td>
           </tr>
