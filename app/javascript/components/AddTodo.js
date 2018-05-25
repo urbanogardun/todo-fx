@@ -33,11 +33,11 @@ class AddTodo extends React.Component {
                         <label className="label is-medium">Subject</label>
                         <div className="control has-icons-left has-icons-right">
                             <input className="input is-medium" id="add-todo__input-subject" type="text" placeholder="Text input" />
-                            <span className="icon is-small is-left">
-                                <i className="fas fa-envelope fa-xs"/>
+                            <span className="icon is-left">
+                                <i className="fas fa-envelope fa-sm"/>
                             </span>
-                            <span className="icon is-small is-right">
-                                <i className="fas fa-check fa-xs"/>
+                            <span className="icon is-right">
+                                <i className="fas fa-check fa-sm"/>
                             </span>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ class AddTodo extends React.Component {
                         <div className="control has-icons-left has-icons-right">
                             <input className="input is-medium" id="add-todo__input-due-date" type="text" placeholder="MM/DD/YYYY HH:MM:SS" />
                             <span className="icon is-left">
-                                <i className="fas fa-envelope fa-sm" />
+                                <i className="fas fa-calendar-alt fa-sm" />
                             </span>
                             <span className="icon is-right">
                                 <i className="fas fa-check fa-sm" />
@@ -56,7 +56,7 @@ class AddTodo extends React.Component {
                     </div>
 
                     <div className="field is-grouped">
-                        <p className="control has-icons-left">
+                        <p className="control">
                             <label className="label is-medium">Priority</label>
                             <span className="select is-medium">
                                 <select id="add-todo__select-priority">
@@ -66,9 +66,6 @@ class AddTodo extends React.Component {
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
-                            </span>
-                            <span className="icon is-small is-left">
-                                <i className="fas fa-globe"/>
                             </span>
                         </p>
 
