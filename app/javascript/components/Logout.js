@@ -30,7 +30,9 @@ class Logout extends React.Component {
 
     render() {
         return (
-            <button onClick={this.handleLogout}>Sign Out</button>
+            <a className="navbar-item" onClick={this.handleLogout}>
+            Sign Out
+            </a>
         );
     };
 

@@ -27,7 +27,7 @@ class AddTodo extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="container">
+                <div className="container" style={{marginBottom: 100 + 'px'}}>
 
                     <div className="field">
                         <label className="label is-medium">Subject</label>
@@ -80,8 +80,6 @@ class AddTodo extends React.Component {
                     </div>
 
                 </div>
-
-                <br />
 
             </React.Fragment>
         );
