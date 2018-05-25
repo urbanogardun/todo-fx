@@ -1,12 +1,24 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Logout from './Logout'
+import * as $ from 'jquery'
 
 class GuestHeader extends React.Component {
 
     constructor(props) {
         super(props);
     }
+
+    componentDidMount() {
+        var $toggle = $('span[data-target="navbarMenuHeroA"]');
+        var $menu = $('#navbarMenuHeroA');
+
+        $toggle.click(function () {
+            $(this).toggleClass('is-active');
+            $menu.toggleClass('is-active');
+        });
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -15,26 +27,24 @@ class GuestHeader extends React.Component {
 
                     <div className="hero-head">
                         <nav className="navbar">
-                        <div className="container">
-                            <div className="navbar-brand">
-                            <a className="navbar-item">
-                                <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
-                            </a>
-                            <span className="navbar-burger burger" data-target="navbarMenuHeroA">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </span>
+                            <div className="container">
+                                <div className="navbar-brand">
+                                    <span className="navbar-item"/>
+                                    <span className="navbar-burger burger" data-target="navbarMenuHeroA">
+                                        <span/>
+                                        <span/>
+                                        <span/>
+                                    </span>
+                                </div>
+                                <div className='navbar-menu' id="navbarMenuHeroA">
+                                    <div className="navbar-end">
+                                        <a className="navbar-item is-active">
+                                        Home
+                                        </a>
+                                        <Logout {...this.props} />
+                                    </div>
+                                </div>
                             </div>
-                            <div id="navbarMenuHeroA" className="navbar-menu">
-                            <div className="navbar-end">
-                                <a className="navbar-item is-active">
-                                Home
-                                </a>
-                                <Logout {...this.props} />
-                            </div>
-                            </div>
-                        </div>
                         </nav>
                     </div>
 

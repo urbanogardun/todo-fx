@@ -126,7 +126,6 @@ class TodoManager extends React.Component {
         <UserHeader {...this.props} />
         <AddTodo currentUserId={this.state.currentUserId} addTodo={this.addTodo} />
         <TodoList currentUserId={this.state.currentUserId} todos={this.state.todos} editTodo={this.editTodo} deleteTodo={this.deleteTodo} markTodoCompleted={this.markTodoCompleted} />
-        <Logout />
       </React.Fragment>
     );
   }
