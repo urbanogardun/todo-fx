@@ -7,29 +7,27 @@ class EditTodo extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            showEditForm: false
-        }
         this.editTodo = this.editTodo.bind(this);
         this.saveTodo = this.saveTodo.bind(this);
     }
 
     editTodo(e, todoId) {
         e.preventDefault();
-        this.setState({
-            showEditForm: this.state.showEditForm ? false : true
-        })
+
+        $(`#todo-modal-${this.props.todo.id}`).toggleClass('is-active')
     }
 
     saveTodo(e) {
+        e.preventDefault();
+        
         let todoId = this.props.todo.id;
-
+        
         let editFormElement = $(`div[data-item-id="${todoId}"]`);
-
+        
         let todoSubject = editFormElement.find('.edit-todo__input-subject').val().trim();
         let dueDate = new Date(editFormElement.find('.edit-todo__input-due-date').val().trim());
         let priority = editFormElement.find('.edit-todo__input-priority').val().trim();
-
+        
         let todo = {
             id: todoId,
             user_id: this.props.todo.user_id,
@@ -37,12 +35,10 @@ class EditTodo extends React.Component {
             due: dueDate,
             priority: priority
         }
-
+        
         this.props.editTodo(todoId, todo);
 
-        this.setState({
-            showEditForm: false
-        })
+        $(`#todo-modal-${this.props.todo.id}`).removeClass('is-active')
 
     }
 
@@ -85,10 +81,25 @@ class EditTodo extends React.Component {
         )
         return (
             <React.Fragment>
-                <h2>Edit Todo</h2>
-                <p>{this.state.showEditForm ? null : this.props.todo.item}</p>
-                {this.state.showEditForm ? editForm : null }
-                <button onClick={(e) => this.editTodo(e, todoId)}>Edit Todo</button>
+
+                <div className="modal" id={`todo-modal-${this.props.todo.id}`}>
+                <div className="modal-background"></div>
+                <div className="modal-card">
+                    <header className="modal-card-head">
+                    <p className="modal-card-title">Modal title</p>
+                    <button className="delete" aria-label="close" onClick={this.editTodo}></button>
+                    </header>
+                    <section className="modal-card-body">
+                        {editForm}
+                    </section>
+                    <footer className="modal-card-foot">
+                    <button className="button is-success" onClick={this.saveTodo}>Save changes</button>
+                    <button className="button" onClick={this.editTodo}>Cancel</button>
+                    </footer>
+                </div>
+                </div>
+
+                <button className="button" onClick={this.editTodo}>Edit</button>
             </React.Fragment>
         );
     }

@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import axios from 'axios'
+import * as $ from 'jquery'
 
 class CompleteTodo extends React.Component {
 
@@ -11,16 +12,14 @@ class CompleteTodo extends React.Component {
 
     markTodoCompleted(e) {
         e.preventDefault();
-
+        console.log($(e).parent());
+        $(`#table-row-${this.props.todoId}`).toggleClass('is-selected')
         this.props.markTodoCompleted(this.props.todoId);
     }
 
     render() {
         return (
-            <React.Fragment>
-                <h2>markTodoCompleted</h2>
-                <button onClick={this.markTodoCompleted}>Complete Todo</button>
-            </React.Fragment>
+            <button className="button" onClick={this.markTodoCompleted}>Complete</button>
         );
     }
 }

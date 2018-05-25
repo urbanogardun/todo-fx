@@ -8,16 +8,38 @@ import axios from 'axios'
 class TodoList extends React.Component {
     render () {
         const listItems = this.props.todos.map((todo) =>
-            <React.Fragment key={todo.id}>
-              <EditTodo todo={todo} editTodo={this.props.editTodo} />
-              <DeleteTodo todoId={todo.id} deleteTodo={this.props.deleteTodo} />
-              <CompleteTodo todoId={todo.id} markTodoCompleted={this.props.markTodoCompleted} />
-            </React.Fragment>
+          <tr key={todo.id} id={`table-row-${todo.id}`}>
+            <th>{todo.priority}</th>
+            <td>{todo.item}</td>
+            <td>{new Date(todo.due).toLocaleString()}</td>
+            <td><CompleteTodo todoId={todo.id} markTodoCompleted={this.props.markTodoCompleted} /></td>
+            <td><EditTodo todo={todo} editTodo={this.props.editTodo} /></td>
+          </tr>
         );
       return (
         <React.Fragment>
-          <h2>TodoList</h2>
-          <ul>{listItems}</ul>
+
+          <div className="container">
+            <table className="table is-fullwidth is-hoverable">
+              <thead>
+                <tr>
+                  <th>
+                    <abbr title="Items with lower number are considered higher priority">Priority</abbr>
+                  </th>
+                  <th>Item</th>
+                  <th>
+                    <abbr title="By what date should an item be completed">Due</abbr>
+                  </th>
+                  <th/>
+                  <th/>
+                </tr>
+              </thead>
+              <tbody>
+                {listItems}
+              </tbody>
+            </table>
+          </div>
+
         </React.Fragment>
       );
     }
