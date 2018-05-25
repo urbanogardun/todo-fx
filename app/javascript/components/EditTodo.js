@@ -76,7 +76,6 @@ class EditTodo extends React.Component {
                         </div>
                     </div>
                 </div>
-                <button onClick={this.saveTodo}>Save Todo</button>
             </div>
         )
         return (
