@@ -18,14 +18,16 @@ class Signup extends React.Component {
         let instance = axios.create({
             headers: {'X-CSRF-Token' : document.querySelector('meta[name="csrf-token"]').getAttribute('content')}
         });
+        let email = document.getElementById("email").value;
         instance.post('/users', {
             user: {
-                email: document.getElementById("email").value,
+                email: email,
                 password: document.getElementById("password").value,
                 password_confirmation: document.getElementById("password_confirmation").value
             }
         })
         .then(function (response) {
+            that.props.updateCurrentUser(email)
             that.props.history.push('/todo');
         })
         .catch(function (error) {
